@@ -5,8 +5,6 @@ package othlon.antiquarian.proxies;
  */
 public class CommonProxy {
 
-    public void registerRenderers(){
 
-    }
 
 }
