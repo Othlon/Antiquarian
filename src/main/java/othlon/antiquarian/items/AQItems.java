@@ -11,14 +11,23 @@ import net.minecraft.item.ItemSpade;
 public class AQItems {
 
     public static Item trowel;
-    public static Item fragment;
+    public static Item celticFrag;
+    public static Item romanFrag;
+    public static Item egyptianFrag;
+   // public static Item celticFrag;
 
     public static void doTheItemThing(){
         trowel = new AQTrowel();
         GameRegistry.registerItem(trowel, "trowel");
 
-        fragment = new AQFragment();
-        GameRegistry.registerItem(fragment, "Fragment");
+        celticFrag = new AQFragment("Celtic");
+        GameRegistry.registerItem(celticFrag, "celticFragment");
+
+        romanFrag = new AQFragment("Roman");
+        GameRegistry.registerItem(romanFrag, "romanFragment");
+
+        egyptianFrag = new AQFragment("Egyptian");
+        GameRegistry.registerItem(egyptianFrag, "egyptianFragment");
 
     }
 }

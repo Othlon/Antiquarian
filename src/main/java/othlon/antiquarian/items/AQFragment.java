@@ -8,10 +8,12 @@ import othlon.antiquarian.antiquarian;
  */
 public class AQFragment extends Item {
 
-    public AQFragment(){
+    public AQFragment(String sCiv){
 
-        setUnlocalizedName("Fragment");
+        String textureName = "antiquarian:"+sCiv+"_frag";
+
+        setUnlocalizedName(sCiv+" Fragment");
         setCreativeTab(antiquarian.tabAntiQ);
-        this.setTextureName("antiquarian:fragment");
+        this.setTextureName(textureName.toLowerCase());
     }
 }
