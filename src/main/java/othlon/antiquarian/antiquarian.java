@@ -38,10 +38,10 @@ public class antiquarian {
     }//end pre init
 
     public void OnPostPopulateChunkEvent(PopulateChunkEvent.Post event){
-
+        GameRegistry.registerWorldGenerator(new AQCelticSiteGen(), 1);
     }
     @Mod.EventHandler
     public void init (FMLInitializationEvent event) {
-        GameRegistry.registerWorldGenerator(new AQCelticSiteGen(), 2);
+
     }
 }

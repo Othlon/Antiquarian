@@ -10,6 +10,7 @@ import net.minecraft.world.gen.ChunkProviderFlat;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import othlon.antiquarian.blocks.AQBlocks;
 
+import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.util.Random;
 
@@ -33,30 +34,20 @@ public class AQCelticSiteGen extends WorldGenerator implements IWorldGenerator {
         {
             return;
         }
-        else{
-                generateIsland(world, rand, chunkX * 16, chunkZ * 16);
+        if (world.provider.dimensionId == 0){
+                generateIsland(world, rand, chunkX % 16, chunkZ * 16);
         }
     }
 
     // Island is biased towards one direction. Quadrants would be more useful
     public void generateIsland (World world, Random rand, int xChunk, int zChunk) {
-        int xRange = rand.nextInt(13) + 20;
-        int yCenter = 50 + world.getHeightValue(xChunk, zChunk) + rand.nextInt(50);
-        int zRange = rand.nextInt(13) + 20;
-        int height = 12;
-        int initialHeight = height;
-        Ellipse2D.Double ellipse = new Ellipse2D.Double(0, 0, xRange, zRange);
 
-        // Basic shape
-        for (int x = 0; x <= xRange; x++)
+        for (int x = 0; x <= 5; x++)
         {
-            for (int z = 0; z <= zRange; z++)
+            for (int z = 0; z <= 5; z++)
             {
-                for (int y = 0; y <= height; y++)
-                {
-                    if (ellipse.contains(x, z))
-                        world.setBlock(x + xChunk, y + yCenter, z + zChunk, topSoil, 5, 0);
-                }
+                int y = (world.getHeightValue(xChunk + x, zChunk + z));
+                world.setBlock(x + xChunk, y - 1, z + zChunk, topSoil, 5, 0);
             }
         }
     }
