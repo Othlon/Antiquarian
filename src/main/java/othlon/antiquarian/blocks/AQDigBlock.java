@@ -75,18 +75,9 @@ public class AQDigBlock extends BlockGrass {
 
         EntityPlayer player = harvesters.get();
         ItemStack heldItem  = player.getCurrentEquippedItem();
-
-        ItemStack romanFrags    = new ItemStack(AQItems.romanFrag, 1, 0);
-        ItemStack celticFrags   = new ItemStack(AQItems.celticFrag, 1, 0);
-        ItemStack egyptianFrags = new ItemStack(AQItems.egyptianFrag, 1, 0);
-
-
-
-
         if((heldItem != null)&&(heldItem.getItem() == AQItems.trowel))
         {
            return fragmentDrop;
-
         }
             return Blocks.dirt.getItemDropped(0, rand, intB);
 
@@ -159,7 +150,7 @@ public class AQDigBlock extends BlockGrass {
 
     @SideOnly(Side.CLIENT)
     public static IIcon getIconSideOverlay() {
-        return AQBlocks.digBlock.overlay;
+        return AQBlocks.celticTopsoil.overlay;
     }
 
     public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
