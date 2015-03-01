@@ -16,13 +16,13 @@ public class LoadSchematicFromFileCommand extends CommandBase
     @Override
     public String getCommandName()
     {
-        return "snsLoadSchematicFromFile";
+        return "aqLoadSchematicFromFile";
     }
 
     @Override
     public String getCommandUsage(ICommandSender p_71518_1_)
     {
-        return "snsLoadSchematicFromFile [schematicName]";
+        return "aqLoadSchematicFromFile [schematicName]";
     }
 
     @Override

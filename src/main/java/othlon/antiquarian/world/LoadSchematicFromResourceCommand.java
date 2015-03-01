@@ -14,13 +14,13 @@ public class LoadSchematicFromResourceCommand extends CommandBase
     @Override
     public String getCommandName()
     {
-        return "snsLoadSchematicFromResource";
+        return "aqLoadSchematicFromResource";
     }
 
     @Override
     public String getCommandUsage(ICommandSender p_71518_1_)
     {
-        return "snsLoadSchematicFromResource [schematicName]";
+        return "aqLoadSchematicFromResource [schematicName]";
     }
 
     @Override
@@ -39,7 +39,7 @@ public class LoadSchematicFromResourceCommand extends CommandBase
 
             loader.loadSchematic(schematicLocation);
             loader.renderSchematicInOneShot(schematicLocation, player.getEntityWorld(), (int) player.posX, (int) player.posY, (int) player.posZ, ForgeDirection.NORTH, false);
-            sender.addChatMessage(new ChatComponentText("Potato Spawned."));
+            sender.addChatMessage(new ChatComponentText("Carrot Spawned."));
         }
     }
 }
