@@ -1,4 +1,4 @@
-package othlon.antiquarian.world;
+package othlon.antiquarian.world.structure;
 
 import net.minecraft.world.World;
 /**

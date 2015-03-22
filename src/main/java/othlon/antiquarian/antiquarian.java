@@ -12,7 +12,7 @@ import othlon.antiquarian.blocks.AQBlocks;
 import othlon.antiquarian.helpers.AQTab;
 import othlon.antiquarian.items.AQItems;
 import othlon.antiquarian.proxies.CommonProxy;
-import othlon.antiquarian.world.AQCelticSiteGen;
+import othlon.antiquarian.world.structure.AQCelticSiteGen;
 import othlon.antiquarian.world.LoadSchematicFromFileCommand;
 import othlon.antiquarian.world.LoadSchematicFromResourceCommand;
 
@@ -50,7 +50,7 @@ public class antiquarian {
 
     @Mod.EventHandler
     public void onServerStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new LoadSchematicFromResourceCommand());
-        event.registerServerCommand(new LoadSchematicFromFileCommand());
+       event.registerServerCommand(new LoadSchematicFromResourceCommand());
+      event.registerServerCommand(new LoadSchematicFromFileCommand());
     }
 }

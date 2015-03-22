@@ -1,7 +1,8 @@
-package othlon.antiquarian.world;
+package othlon.antiquarian.world.structure;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.*;
@@ -20,6 +21,7 @@ import java.util.Random;
 public class AQCelticSiteGen extends WorldGenerator implements IWorldGenerator {
 
     Block topSoil = AQBlocks.celticTopsoil;
+
 
     public AQCelticSiteGen()
     {
