@@ -22,10 +22,15 @@ import othlon.antiquarian.world.LoadSchematicFromResourceCommand;
  * Created by jen on 19/07/2014.
  */
 
-@Mod (modid="Antiquarian")
-public class antiquarian {
+@Mod(modid = Antiquarian.MOD_ID, name = Antiquarian.MOD_NAME, version = Antiquarian.MOD_VERSION, useMetadata = true)
+public class Antiquarian {
 
-    @SidedProxy(clientSide ="othlon.antiquarian.proxies.ClientProxy", serverSide = "othlon.antiquarian.proxie.CommonProxy" )
+    public static final String MOD_ID = "antiquarian";
+    public static final String MOD_NAME = "Antiquarian";
+    public static final String MOD_VERSION = "@MOD_VERSION@";
+    public static final String RESOURCE_PREFIX = MOD_ID.toLowerCase() + ':';
+
+    @SidedProxy(clientSide ="othlon.antiquarian.proxies.ClientProxy", serverSide = "othlon.antiquarian.proxies.CommonProxy" )
     public static CommonProxy proxy;
 
     public static CreativeTabs tabAntiQ;

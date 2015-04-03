@@ -2,7 +2,6 @@ package othlon.antiquarian.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,12 +14,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.common.BiomeDictionary;
-import othlon.antiquarian.antiquarian;
+import othlon.antiquarian.Antiquarian;
 import othlon.antiquarian.items.AQItems;
-import othlon.antiquarian.items.AQTrowel;
 
 import java.util.List;
 import java.util.Random;
@@ -28,7 +23,7 @@ import java.util.Random;
 /**
  * Created by Jen on 16/02/2015.
  */
-public class AQDigBlock extends BlockGrass {
+public class AQDigBlock extends AQBlockGrass {
     @SideOnly(Side.CLIENT)
     IIcon icons[];
 
@@ -43,10 +38,10 @@ public class AQDigBlock extends BlockGrass {
         setResistance(5.0F);
         setStepSound(soundTypeGravel);
         setBlockName("TopSoil");
-        setCreativeTab(antiquarian.tabAntiQ);
+        setCreativeTab(Antiquarian.tabAntiQ);
         fragmentDrop = frag;
         //what biome am i in?
-
+        //Steven: You can't possibly know this now.
         //set fragment category according to biome ID returned
 
     }
