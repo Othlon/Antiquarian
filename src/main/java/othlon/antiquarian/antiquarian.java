@@ -7,10 +7,12 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import othlon.antiquarian.blocks.AQBlocks;
 import othlon.antiquarian.helpers.AQTab;
 import othlon.antiquarian.items.AQItems;
+import othlon.antiquarian.library.WorldGenerators;
 import othlon.antiquarian.proxies.CommonProxy;
 import othlon.antiquarian.world.structure.AQCelticSiteGen;
 import othlon.antiquarian.world.LoadSchematicFromFileCommand;
@@ -40,12 +42,10 @@ public class antiquarian {
 
     }//end pre init
 
-    public void OnPostPopulateChunkEvent(PopulateChunkEvent.Post event){
-        GameRegistry.registerWorldGenerator(new AQCelticSiteGen(), 1);
-    }
     @Mod.EventHandler
     public void init (FMLInitializationEvent event) {
-
+        proxy.loadSchematics();
+        GameRegistry.registerWorldGenerator(WorldGenerators.CELTIC_SITE_GEN, 1);
     }
 
     @Mod.EventHandler
