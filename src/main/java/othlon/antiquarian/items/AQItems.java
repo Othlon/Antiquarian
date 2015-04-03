@@ -3,6 +3,7 @@ package othlon.antiquarian.items;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSpade;
+import othlon.antiquarian.Antiquarian;
 
 
 /**
@@ -18,16 +19,16 @@ public class AQItems {
 
     public static void doTheItemThing(){
         trowel = new AQTrowel();
-        GameRegistry.registerItem(trowel, "trowel");
+        GameRegistry.registerItem(trowel, Antiquarian.RESOURCE_PREFIX + "trowel");
 
-        celticFrag = new AQFragment("Celtic");
-        GameRegistry.registerItem(celticFrag, "celticFragment");
+        celticFrag = new AQFragment("celtic");
+        GameRegistry.registerItem(celticFrag, Antiquarian.RESOURCE_PREFIX + "celticFragment");
 
-        romanFrag = new AQFragment("Roman");
-        GameRegistry.registerItem(romanFrag, "romanFragment");
+        romanFrag = new AQFragment("roman");
+        GameRegistry.registerItem(romanFrag, Antiquarian.RESOURCE_PREFIX + "romanFragment");
 
-        egyptianFrag = new AQFragment("Egyptian");
-        GameRegistry.registerItem(egyptianFrag, "egyptianFragment");
+        egyptianFrag = new AQFragment("egyptian");
+        GameRegistry.registerItem(egyptianFrag, Antiquarian.RESOURCE_PREFIX + "egyptianFragment");
 
     }
 }

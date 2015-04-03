@@ -5,7 +5,7 @@ import akka.routing.RouterManagementMesssage;
 /**
  * Created by Jen on 17/02/2015.
  */
-public enum origin
+public enum Origin
 {
 
       CELTIC,

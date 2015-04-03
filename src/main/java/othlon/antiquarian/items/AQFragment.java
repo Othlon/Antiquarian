@@ -1,7 +1,7 @@
 package othlon.antiquarian.items;
 
 import net.minecraft.item.Item;
-import othlon.antiquarian.antiquarian;
+import othlon.antiquarian.Antiquarian;
 
 /**
  * Created by Jen on 16/02/2015.
@@ -10,10 +10,10 @@ public class AQFragment extends Item {
 
     public AQFragment(String sCiv){
 
-        String textureName = "antiquarian:"+sCiv+"_frag";
+        String unlocalizedName = Antiquarian.RESOURCE_PREFIX +sCiv+"Fragment";
 
-        setUnlocalizedName(sCiv+" Fragment");
-        setCreativeTab(antiquarian.tabAntiQ);
-        this.setTextureName(textureName.toLowerCase());
+        setUnlocalizedName(unlocalizedName);
+        setCreativeTab(Antiquarian.tabAntiQ);
+        this.setTextureName((Antiquarian.RESOURCE_PREFIX +sCiv + "_frag").toLowerCase());
     }
 }

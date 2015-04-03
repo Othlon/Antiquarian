@@ -1,13 +1,7 @@
 package othlon.antiquarian.items;
 
-import com.google.common.collect.Sets;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSpade;
-import net.minecraft.item.ItemTool;
-import othlon.antiquarian.antiquarian;
-
-import java.util.Set;
+import othlon.antiquarian.Antiquarian;
 
 /**
  * Created by Jen on 14/02/2015.
@@ -17,9 +11,9 @@ public class AQTrowel extends ItemSpade {
     public AQTrowel(){
 
         super(ToolMaterial.IRON);
-        setUnlocalizedName("Trowel");
-        setCreativeTab(antiquarian.tabAntiQ);
-        this.setTextureName("antiquarian:trowel");
+        setUnlocalizedName(Antiquarian.RESOURCE_PREFIX + "trowel");
+        setCreativeTab(Antiquarian.tabAntiQ);
+        this.setTextureName(Antiquarian.RESOURCE_PREFIX +"trowel");
     }
 
 }

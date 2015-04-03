@@ -17,47 +17,74 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "net.cherrypig.antiquarian" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "antiquarian"
+// define the properties file
+ext.configFile = file "build.properties"
 
-minecraft {
-    version = "1.7.10-10.13.2.1291"
-    assetDir = "eclipse/assets"
+configFile.withReader {
+    // read config.  it shall from now on be referenced as simply config or as project.config
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
 }
 
-dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+version = config.mod_version
+group = config.group_name
+archivesBaseName = "[${config.minecraft_version}]${config.mod_id}"
 
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version // grab latest forge
+    runDir = "run"
+    replace '@MOD_VERSION@', version
+    replace '@API_VERSION@', config.api_version
 }
 
 processResources
-{
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
+        {
+            // this will ensure that this task is redone when the versions change.
+            inputs.property "version", project.version
+            inputs.property "mcversion", project.minecraft.version
 
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else, thats not the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+            // replace stuff in the files we want.
+            from(sourceSets.main.resources.srcDirs) {
+                include '**/*.info'
+                include '**/*.properties'
+
+                // replaces
+                expand ([
+                        'mod_version': version,
+                        'forge_version': config.forge_version,
+                        'minecraft_version': config.minecraft_version
+                ])
+            }
+
+            // copy everything else, thats we didnt do before
+            from(sourceSets.main.resources.srcDirs) {
+                exclude '**/*.info'
+                exclude '**/*.properties'
+            }
+        }
+
+// add a source jar
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    appendix = 'deobf'
+    classifier = 'src'
+}
+
+// because the normal output has been made to be obfuscated
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    appendix = 'deobf'
+}
+
+artifacts {
+    archives sourceJar
+    archives deobfJar
+}
+
+task copyChicken(type: Copy, dependsOn: "extractUserDev") {
+    from { configurations.compile }
+    into file("./run/mods") // paralell to the assets dir
+    mustRunAfter "deobfBinJar"
+    mustRunAfter "repackMinecraft"
 }

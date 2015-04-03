@@ -9,14 +9,17 @@ import othlon.antiquarian.items.AQItems;
  */
 public class AQBlocks {
 
-    public static AQDigBlock celticTopsoil = new AQDigBlock(AQItems.celticFrag);
-    public static AQDigBlock romanTopsoil  = new AQDigBlock(AQItems.romanFrag);
+    private static final String CELTIC_TOPSOIL_NAME = "celticTopSoil";
+    private static final String ROMAN_TOPSOIL_NAME = "romanTopSoil";
+
+    public static AQDigBlock celticTopsoil = (AQDigBlock)new AQDigBlock(AQItems.celticFrag).setBlockName(CELTIC_TOPSOIL_NAME);
+    public static AQDigBlock romanTopsoil  = (AQDigBlock)new AQDigBlock(AQItems.romanFrag).setBlockName(ROMAN_TOPSOIL_NAME);
 
     public static void doTheBlockThing(){
-        GameRegistry.registerBlock(celticTopsoil, "celticTopsoil");
+        GameRegistry.registerBlock(celticTopsoil, CELTIC_TOPSOIL_NAME);
         OreDictionary.registerOre("blockDirt", celticTopsoil);
 
-        GameRegistry.registerBlock(romanTopsoil, "romanTopsoil");
+        GameRegistry.registerBlock(romanTopsoil, ROMAN_TOPSOIL_NAME);
         OreDictionary.registerOre("blockDirt", romanTopsoil);
     }
 }
