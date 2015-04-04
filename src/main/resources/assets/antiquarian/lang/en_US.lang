@@ -1,0 +1,19 @@
+##############################
+# Antiquarian
+#
+# English - UNITED STATES (US) (en_US) localization
+# Author: Steven Blom
+#
+
+# Creative Tabs
+itemGroup.CherryPigTab=Antiquarian
+
+#Blocks
+tile.antiquarian:celticTopSoil.name=Celtic Top Soil
+tile.antiquarian:romanTopSoil.name=Roman Top Soil
+
+# Items
+item.antiquarian:trowel.name=Trowel
+item.antiquarian:celticFragment.name=Celtic Fragment
+item.antiquarian:romanFragment.name=Roman Fragment
+item.antiquarian:egyptianFragment.name=Egyptian Fragment
