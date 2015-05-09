@@ -2,8 +2,6 @@ package othlon.antiquarian.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockGrass;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import othlon.antiquarian.Antiquarian;
 import othlon.antiquarian.items.AQItems;
 
@@ -42,6 +39,7 @@ public class AQDigBlock extends AQBlockGrass {
         fragmentDrop = frag;
         //what biome am i in?
         //Steven: You can't possibly know this now.
+        // othy: well that is shit
         //set fragment category according to biome ID returned
 
     }
@@ -53,11 +51,11 @@ public class AQDigBlock extends AQBlockGrass {
  //   }
 
 
-    public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest)
+  /*  public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest)
     {
 
         return removedByPlayer(world, player, x, y, z);
-    }
+    }*/
 
 
     @Override
@@ -88,7 +86,7 @@ public class AQDigBlock extends AQBlockGrass {
     }
 
 
-    //@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         if (side == 0){
             return icons[2];
@@ -148,7 +146,7 @@ public class AQDigBlock extends AQBlockGrass {
         return AQBlocks.celticTopsoil.overlay;
     }
 
-    public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
+   /* public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
         int iCount = 0;
 
         while(iCount < 128)
@@ -182,7 +180,7 @@ public class AQDigBlock extends AQBlockGrass {
                 break;
             }
         }
-    }
+    }*/
 
 }//end class bracket
 
