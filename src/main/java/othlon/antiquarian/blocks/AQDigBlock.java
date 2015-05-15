@@ -2,6 +2,7 @@ package othlon.antiquarian.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import othlon.antiquarian.Antiquarian;
 import othlon.antiquarian.items.AQItems;
 
@@ -51,7 +53,7 @@ public class AQDigBlock extends AQBlockGrass {
  //   }
 
 
-  /*  public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest)
+   /*public boolean removedByPlayer(World world, EntityPlayer player, int x, int y, int z, boolean willHarvest)
     {
 
         return removedByPlayer(world, player, x, y, z);
@@ -79,10 +81,10 @@ public class AQDigBlock extends AQBlockGrass {
     @Override
     public void registerBlockIcons(IIconRegister thisdude) {
         icons = new IIcon[4];
-        icons[0] = thisdude.registerIcon("antiquarian:topsoil_top");
-        icons[1] = thisdude.registerIcon("antiquarian:topsoil_side");
-        icons[2] = thisdude.registerIcon("antiquarian:topsoil_btm");
-        icons[3] = thisdude.registerIcon("antiquarian:topsoil_side_overlay");
+        icons[0] = thisdude.registerIcon("minecraft:grass_top");
+        icons[1] = thisdude.registerIcon("minecraft:dirt");
+        icons[2] = thisdude.registerIcon("minecraft:dirt");
+        icons[3] = thisdude.registerIcon("minecraft:grass_side_overlay");
     }
 
 
@@ -146,7 +148,7 @@ public class AQDigBlock extends AQBlockGrass {
         return AQBlocks.celticTopsoil.overlay;
     }
 
-   /* public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
+  public void func_149853_b(World world, Random rand, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
         int iCount = 0;
 
         while(iCount < 128)
@@ -180,7 +182,7 @@ public class AQDigBlock extends AQBlockGrass {
                 break;
             }
         }
-    }*/
+    }
 
 }//end class bracket
 
